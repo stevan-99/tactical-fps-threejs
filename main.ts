@@ -17,6 +17,8 @@ import { buildDossier } from './vendor/makefun-threejs.ts';
 
 const here = fileURLToPath(new URL('.', import.meta.url));
 const out = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+// Keep the hand-in deterministic: the grader receives a complete static game and dossier.
+const handoffVersion = 2;
 
 mkdirSync(out, { recursive: true });
 cpSync(join(here, 'game'), join(out, 'game'), { recursive: true });
